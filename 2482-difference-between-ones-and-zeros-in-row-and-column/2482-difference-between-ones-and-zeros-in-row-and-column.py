@@ -20,18 +20,13 @@ class Solution:
                     num+=1
             col_1.append(num)
         
-        ans=[]
-        print (row_1)
-        print(col_1)
+        ans=[[0 for _ in range(m)] for _ in range(n)]
+        
         
         for row in range(n):
-            temp=[]
-            
             for col in range(m):
                 num = 2 *(row_1[row] +col_1[col]) - m - n
-                temp.append(num)
-            ans.append(temp)
-            
+                ans[row][col] = num
         return ans
         
         
