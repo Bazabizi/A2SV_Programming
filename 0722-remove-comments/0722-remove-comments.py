@@ -36,5 +36,4 @@ class Solution:
             if len(res)!=0:
                 ans.append(res)
             idx +=1
-            
         return ans
