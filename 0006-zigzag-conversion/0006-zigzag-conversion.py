@@ -7,8 +7,8 @@ class Solution:
         row = 0
         if numRows == 1:
             return s
+        
         while length < size:
-            
             while row < numRows and length< size:
                 temp[row][col] = s[length]
                 length +=1
