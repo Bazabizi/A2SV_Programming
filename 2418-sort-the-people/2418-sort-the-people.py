@@ -6,12 +6,13 @@ class Solution:
             for idx2 in range(size-1,idx,-1):
                 if heights[idx2] > heights[idx2-1]:
                     heights[idx2] , heights[idx2-1] = heights[idx2-1] , heights[idx2]
-        ans = []
+                    names[idx2] , names[idx2-1] = names[idx2-1] , names[idx2]
+#         ans = []
         
-        for num in heights:
-            man = temp.index(num)
-            ans.append(names[man])
-        return ans
+#         for num in heights:
+#             man = temp.index(num)
+#             ans.append(names[man])
+        return names
         
         
                 
