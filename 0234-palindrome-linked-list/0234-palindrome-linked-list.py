@@ -40,7 +40,7 @@ class Solution:
         check = True
         slow = head
         fast = head
-        while fast.next and fast.next.next:
+        while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
             
