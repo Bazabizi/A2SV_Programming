@@ -12,25 +12,21 @@ class Solution:
                 checker.remove(matrix[row][col])
             if total != val:
                 return False
+        
         # for row
-        # checker = {1,2,3,4,5,6,7,8,9}
+        
         for col in range(3):
             total  = 0
             for row in range(3):
-                # if matrix[row][col] not in checker:
-                #     return False
                 total += matrix[row][col]
-                # checker.remove(matrix[row][col])
             if total != val:
                 return False
         total = 0
+        
         # for diagonal
-        # checker = {1,2,3,4,5,6,7,8,9}
+        
         for idx in range(3):
-            # if matrix[idx][idx] not in checker:
-            #     return False
             total += matrix[idx][idx]
-            # checker.remove(matrix[idx][idx])
         if total != val:
             return False
         
