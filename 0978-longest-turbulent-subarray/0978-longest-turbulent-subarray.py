@@ -3,7 +3,6 @@ class Solution:
         length = len(arr)
         left = 0 
         ans = 1 
-        count  = 0
         up = False
         down = False
         for right in range(1,length):
