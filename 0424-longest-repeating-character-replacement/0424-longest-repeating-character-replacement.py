@@ -1,9 +1,7 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         alphabet = set()
-        # left = 0
         ans = 0
-        # count = 0
         length = len(s)
         
         for letter in s:
@@ -22,5 +20,4 @@ class Solution:
                     left += 1
                     count -= 1
                 ans = max(ans , right-left + 1)
-            # print(ans, letter)
         return ans
