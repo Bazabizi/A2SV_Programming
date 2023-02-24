@@ -12,8 +12,7 @@ class MyStack:
             self.stack.pop()
             return num
     def top(self) -> int:
-        if not self.empty():
-            return self.stack[-1]
+        return self.stack[-1]
 
     def empty(self) -> bool:
         if len(self.stack)==0:
