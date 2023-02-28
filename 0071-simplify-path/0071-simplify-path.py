@@ -4,7 +4,7 @@ class Solution:
         length = len(path)
         idx = 0
         for file in path.split("/"):
-            print(file)
+            
             if file =="..":
                 if stack:
                     stack.pop()
