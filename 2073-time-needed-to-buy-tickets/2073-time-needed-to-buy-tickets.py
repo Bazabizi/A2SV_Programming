@@ -6,7 +6,7 @@ class Solution:
         idx = 0
         size = len(tickets)
         while idx < size:
-            # print(queue)
+            
             if idx <= k:
                 time += min(queue[0],minVal)
             else:
