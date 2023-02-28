@@ -20,7 +20,6 @@ class Solution:
                 
                 
             stack.append((val,idx))
-            # print(stack,ans)  
             
         while stack:
             cur  = stack[-1][0]
@@ -32,8 +31,7 @@ class Solution:
             else:
                 left = curIdx + 1
                 
-            ans += (right*left)*cur
-            # print(stack ,ans,left,right)        
+            ans += (right*left)*cur     
                 
                 
         return ans%(10**9 +7)
