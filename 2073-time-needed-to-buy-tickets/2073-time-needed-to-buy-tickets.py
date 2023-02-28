@@ -6,13 +6,12 @@ class Solution:
         idx = 0
         size = len(tickets)
         while idx < size:
+            # print(queue)
             if idx <= k:
                 time += min(queue[0],minVal)
             else:
-                if queue[0] >=minVal:
-                    time += minVal -1
-                else:
-                    time += queue[0]
+                time += min(queue[0],minVal-1) 
+                
             queue.popleft()
             idx += 1
         return time
