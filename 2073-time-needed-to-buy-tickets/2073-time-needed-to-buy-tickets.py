@@ -3,7 +3,7 @@ class Solution:
         queue = deque(tickets)
         time = 0
         size = len(tickets)
-        while queue[k]!=0:
+        while True:
             if queue[0] > 0:
                 queue[0] -= 1
                 time += 1
