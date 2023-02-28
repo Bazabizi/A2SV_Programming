@@ -1,8 +1,6 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
         stack = []
-        length = len(path)
-        idx = 0
         for file in path.split("/"):
             
             if file =="..":
