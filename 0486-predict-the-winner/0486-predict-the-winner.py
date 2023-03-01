@@ -29,8 +29,9 @@ class Solution:
     def winner(self, arr , left,right):
         if left == right :
             return arr[left]
-        return (max(arr[left] - self.winner(arr, left + 1 , right ),arr[right] - self.winner(arr,left,right - 1)))
-    
+        ans = max(arr[left] - self.winner(arr, left + 1 , right ),arr[right] - self.winner(arr,left,right - 1))
+        
+        return ans
         
         
     def PredictTheWinner(self, nums: List[int]) -> bool:
