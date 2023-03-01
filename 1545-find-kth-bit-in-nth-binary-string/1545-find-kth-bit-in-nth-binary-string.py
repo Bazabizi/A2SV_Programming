@@ -9,8 +9,7 @@ class Solution:
                 ans.append("1") 
             else:
                 ans.append("0")
-        return ans
-    
+        return ans    
     
     def binaryString(self,n , k):
         if n == 0:
@@ -18,9 +17,7 @@ class Solution:
         
         curr = self.binaryString(n-1,k) 
         rev = self.reverse(self.invert(curr))
-        
-        # if len(curr) <= k:
-        #     return curr + ["1"] + rev
+
         return curr + ["1"] + rev
     
     def findKthBit(self, n: int, k: int) -> str:
