@@ -1,15 +1,14 @@
 class Solution:
     def decode(self, idx,s):
         length  = len(s)
-        
         num = ""
-        word = ""
         ans = ""
+        
         while idx < length:
             if s[idx] == "]":
                 return [ans,idx]
             
-            elif s[idx] <= "9" and s[idx] >= "0" :
+            elif s[idx].isdigit() :
                 num += s[idx]
             
             elif s[idx] == "[":
