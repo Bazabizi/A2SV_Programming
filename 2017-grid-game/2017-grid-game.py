@@ -9,7 +9,6 @@ class Solution:
         
         for c in range(1,cols-1):
             prefixSum[2][c] = prefixSum[2][c-1] + grid[1][c-1]
-        # print(prefixSum)
         ans = float('inf')
         col = 1 
         while col < cols - 1:
