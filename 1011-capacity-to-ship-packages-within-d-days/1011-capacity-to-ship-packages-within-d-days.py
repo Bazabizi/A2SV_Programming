@@ -21,8 +21,6 @@ class Solution:
         while left + 1 < right:
             mid = (left + right) // 2
             
-            print(left,mid,right)
-            
             if daysToComplete(mid):
                 right = mid
                 
