@@ -4,9 +4,9 @@ class Solution:
         right = len(arr) - 1
         
         while left + 1 < right:
-            mid = (left + right) //2
+            mid = left + (right - left) //2
             
-            if arr[mid] >= arr[right]:
+            if arr[mid] > arr[mid + 1]:
                 right -= 1
             else:
                 left = mid
