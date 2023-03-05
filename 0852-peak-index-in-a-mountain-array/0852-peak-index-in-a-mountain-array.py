@@ -7,7 +7,7 @@ class Solution:
             mid = left + (right - left) //2
             
             if arr[mid] > arr[mid + 1]:
-                right -= 1
+                right = mid
             else:
                 left = mid
             
