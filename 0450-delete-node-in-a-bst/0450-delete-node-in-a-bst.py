@@ -5,6 +5,11 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def minVal(self,root):
+        while root.left:
+            root = root.left
+        return root
+  
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
         if not root:
             return root
@@ -23,14 +28,4 @@ class Solution:
             root.right = self.deleteNode(root.right , temp.val)
         
         return root
-    def minVal(self,root):
-        while root.left:
-            root = root.left
-        return root
-    
-    
-    def maxVal(self, root):
-        while root.right:
-            root = root.right
-        
-        return root
+  
