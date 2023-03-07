@@ -14,13 +14,13 @@ class Solution:
             root.right = self.deleteNode(root.right,key)
         else:
             if not root.left:
-                root = root.right
-            elif not root.right:
-                root = root.left
-            else:            
-                temp = self.minVal(root.right)
-                root.val = temp.val
-                root.right = self.deleteNode(root.right , temp.val)
+                return root.right
+            if not root.right:
+                return root.left
+                     
+            temp = self.minVal(root.right)
+            root.val = temp.val
+            root.right = self.deleteNode(root.right , temp.val)
         
         return root
     def minVal(self,root):
