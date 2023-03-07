@@ -9,9 +9,11 @@ class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
+        left = self.inorderTraversal(root.left)
+        right = self.inorderTraversal(root.right)
         
         ans = []
-        ans.extend(self.inorderTraversal(root.left))
+        ans.extend(left)
         ans.append(root.val)
-        ans.extend(self.inorderTraversal(root.right))
+        ans.extend(right)
         return ans
