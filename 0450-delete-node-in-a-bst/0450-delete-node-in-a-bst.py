@@ -13,13 +13,11 @@ class Solution:
         elif root.val < key:
             root.right = self.deleteNode(root.right,key)
         else:
-            if not root.left and not root.right:
-                root = None
-            elif root.left:
-                temp = self.maxVal(root.left)
-                root.val = temp.val
-                root.left = self.deleteNode(root.left , temp.val)
-            else:
+            if not root.left:
+                root = root.right
+            elif not root.right:
+                root = root.left
+            else:            
                 temp = self.minVal(root.right)
                 root.val = temp.val
                 root.right = self.deleteNode(root.right , temp.val)
