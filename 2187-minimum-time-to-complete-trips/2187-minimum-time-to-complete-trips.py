@@ -8,7 +8,7 @@ class Solution:
             return trip >= totalTrips
         
         left = 0
-        right = max(time) * totalTrips
+        right = min(time) * totalTrips + 1
         
         while left + 1 < right :
             mid = left + (right - left) // 2
