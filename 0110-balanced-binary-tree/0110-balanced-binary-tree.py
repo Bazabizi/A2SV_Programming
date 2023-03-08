@@ -7,15 +7,14 @@
 class Solution:
     def balanced(self, root):
         if not root:
-            return [0 , True]
+            return 0 , True
         check = True
-        left = self.balanced(root.left)
-        right = self.balanced(root.right)
-        left[0] += 1
-        right[0] += 1
-        if max(right[0] , left[0])- 1 > min(right[0],left[0]):
+        left , isleftBalanced = self.balanced(root.left)
+        right , isrightBalanced = self.balanced(root.right)
+        
+        if max(right , left)- 1 > min(right ,left ):
             check = False
-        return [max(left[0] , right[0]) , check and left[1] and right[1]]
+        return max(left , right) + 1 , check and isleftBalanced and isrightBalanced
     
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         ans = self.balanced(root)
