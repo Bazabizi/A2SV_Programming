@@ -1,7 +1,7 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         piles.sort()
-        left = -0
+        left = 0
         right = piles[-1] + 1
         hour = 0
         
@@ -15,5 +15,4 @@ class Solution:
                 left = mid
             else:
                 right = mid
-            # print(left,mid,right)
         return right
