@@ -12,7 +12,7 @@ class Solution:
         left , isleftBalanced = self.balanced(root.left)
         right , isrightBalanced = self.balanced(root.right)
         
-        if max(right , left)- 1 > min(right ,left ):
+        if abs(right - left) >1 :
             check = False
         return max(left , right) + 1 , check and isleftBalanced and isrightBalanced
     
