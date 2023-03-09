@@ -9,14 +9,13 @@ class Solution:
             for i in range(idx , len(num)):
             
                 string  = str(num[idx:i+1])    
-                val = int(str( num[idx : i+1] ) )
+                val = int(string)
                 
                 if val < 10**(len(string)-1) and len(string) > 1:
-                    continue
+                    return
                 
                 if len(current) <= 1 or  current[-1] + current[-2] == val:
                     current.append(val)
-                    # print(current , idx)
                     if backtrack(i + 1):
                         return True
                     current.pop()
