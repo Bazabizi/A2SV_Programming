@@ -5,25 +5,6 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getDistance(self,left, right , arr):
-        flagLeft = False
-        flagRight = False
-        while left < right:
-            if not flagLeft:
-                if arr[left] != -101:
-                    flagLeft = True
-                else:
-                    left += 1
-            if not flagRight:
-                if arr[right] != -101:
-                    flagRight = True
-                else:
-                    right -= 1
-            
-            if flagLeft and flagRight:
-                break
-        return right - left + 1
-    
     def traverse(self,root,level , n):
         if not root:
             return 
