@@ -14,7 +14,7 @@ class Solution:
             return
         self.traverse(root.left , num)
         self.traverse(root.right , num)
-        
+        return
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         self.store = []
         ans = 0
