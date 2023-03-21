@@ -7,12 +7,10 @@ class Solution:
                 if len(current) >=2:
                     ans.add(tuple(current))
                 return
-            check = False
+            
             if not current or current[-1] <= nums[idx]:
                 current.append(nums[idx])
-                check = True
-            backtrack(idx + 1 ,current)
-            if check:
+                backtrack(idx + 1 ,current)
                 current.pop()
             backtrack(idx + 1 , current)
         
