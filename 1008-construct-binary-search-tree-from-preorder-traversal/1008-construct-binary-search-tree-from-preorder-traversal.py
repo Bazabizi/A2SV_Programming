@@ -20,10 +20,11 @@ class Solution:
         
         if index == -1:
             root.right = None
-            root.left = self.preorder(left + 1, right , preorder)
+            index  = right + 1
         else:
-            root.left = self.preorder(left + 1, index - 1 , preorder)
             root.right = self.preorder(index, right , preorder)
+        root.left = self.preorder(left + 1, index - 1 , preorder)
+            
         return root
         
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
