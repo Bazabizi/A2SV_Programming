@@ -16,8 +16,6 @@ class Solution:
                 if check:
                     ans.append(".".join(current))
                 return 
-            if n > 3:
-                return
            
             for i in range(idx , len(s)):
                 val = s[idx : i+1]
