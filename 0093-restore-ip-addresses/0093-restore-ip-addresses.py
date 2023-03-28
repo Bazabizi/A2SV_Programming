@@ -1,20 +1,18 @@
 class Solution:
-    def helper(self,temp):
-        if len(temp) > 4:
-            return False
-        for num in temp:
+#     def helper(self,temp):
+#         if len(temp) > 4:
+#             return False
+#         for num in temp:
         
-            if int(num) > 255:
-                return False
-        return True
+#             if int(num) > 255:
+#                 return False
+#         return True
     
     def restoreIpAddresses(self, s: str) -> List[str]:
         ans = []
         def backtrack(idx , current , n):
             if idx >= len(s) and n == 4:
-                check = self.helper(current)
-                if check:
-                    ans.append(".".join(current))
+                ans.append(".".join(current))
                 return 
             if n > 3:
                 return
