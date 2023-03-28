@@ -12,9 +12,7 @@ class Solution:
                         idx += 1
                     else:
                         idx2 = nums[idx] - 1
-                        temp = nums[idx]
-                        nums[idx] = nums[idx2]
-                        nums[idx2] = temp
+                        nums[idx] , nums[idx2] = nums[idx2] , nums[idx] 
                 else:
                     idx += 1
             else:
