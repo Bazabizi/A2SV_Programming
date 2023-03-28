@@ -1,13 +1,4 @@
 class Solution:
-#     def helper(self,temp):
-#         if len(temp) > 4:
-#             return False
-#         for num in temp:
-        
-#             if int(num) > 255:
-#                 return False
-#         return True
-    
     def restoreIpAddresses(self, s: str) -> List[str]:
         ans = []
         def backtrack(idx , current , n):
