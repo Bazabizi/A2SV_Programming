@@ -3,7 +3,7 @@ class Solution:
         ans = []
         for num in range(n + 1):
             count = 0
-            for _ in range(20):
+            for _ in range(17):
                 if num & 1:
                     count += 1
                 num = num >> 1
