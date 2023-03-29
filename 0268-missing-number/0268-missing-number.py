@@ -1,6 +1,11 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        n = len(nums)
-        ans = (n**2 + n)//2 - sum(nums)
+        length = len(nums)
+        num = 0
+        for val in nums:
+            num = num | (1 << val)
         
-        return ans
+        for val in range(length + 1):
+            if not (num & (1 << val)):
+                    return val
+        
