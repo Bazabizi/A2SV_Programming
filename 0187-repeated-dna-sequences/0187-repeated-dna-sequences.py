@@ -6,7 +6,7 @@ class Solution:
         G = 0
         T = 0
         left = 0
-        count = []
+        ans = set()
         for right, letter in enumerate(s):
             A <<= 1
             C <<= 1
@@ -20,7 +20,7 @@ class Solution:
             
             if right - left + 1 == 10:
                 if (A,C,T,G) in find:
-                    count.append([A,C,T,G])
+                    ans.add(s[left:right + 1])
                 find.add((A,C,T,G))
                 
                 
@@ -30,16 +30,16 @@ class Solution:
                 elif s[left] == "G": G ^= 1 << 9
                 left += 1
             
-        ans = []
-        for val in count:
-            temp = ""
-            move = 512
-            for _ in range(10):
-                if val[0] & move: temp += "A"
-                elif val[1] & move: temp += "C"
-                elif val[2] & move: temp += "T"
-                elif val[3] & move: temp += "G"
-                move >>= 1
-            ans.append(temp)
+#         ans = []
+#         for val in count:
+#             temp = ""
+#             move = 512
+#             for _ in range(10):
+#                 if val[0] & move: temp += "A"
+#                 elif val[1] & move: temp += "C"
+#                 elif val[2] & move: temp += "T"
+#                 elif val[3] & move: temp += "G"
+#                 move >>= 1
+#             ans.append(temp)
         
-        return list(set(ans))
+        return list(ans)
