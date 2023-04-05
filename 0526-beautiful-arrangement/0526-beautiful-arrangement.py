@@ -4,6 +4,7 @@ class Solution:
         def backtrack(arr , path):
             if len(arr)== n:
                 self.ans += 1
+                return
             for idx in range(1,n + 1):
                 if path & 1<<idx == 0:
                     if idx % (len(arr) + 1) ==0 or (len(arr) + 1) % idx ==0:
@@ -12,5 +13,6 @@ class Solution:
                         backtrack(arr , path)
                         path ^= 1<<idx
                         arr.pop()
+                    
         backtrack([] ,0)
         return self.ans
