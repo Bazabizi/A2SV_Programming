@@ -2,9 +2,7 @@ class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
         if len(deck) <= 1:
             return False
-        count = defaultdict(int)
-        for num in deck:
-            count[num] += 1
+        count = Counter(deck)
             
         minVal = min(count.values())
         for val in count.values():
