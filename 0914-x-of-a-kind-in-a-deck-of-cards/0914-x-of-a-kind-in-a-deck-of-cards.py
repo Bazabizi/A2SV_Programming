@@ -9,6 +9,6 @@ class Solution:
         minVal = min(count.values())
         for val in count.values():
             minVal = math.gcd(minVal,val)
-        if minVal == 1:
-            return False
+            if minVal == 1:
+                return False
         return True
