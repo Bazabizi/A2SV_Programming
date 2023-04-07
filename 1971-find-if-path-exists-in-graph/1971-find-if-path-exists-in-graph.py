@@ -6,15 +6,16 @@ class Solution:
             graph[end].add(start)
         
         visited = set()
-        def dfs(vertix , visited):
-            if vertix == destination:
+        stack = []
+        stack.append(source)
+        while stack:
+            cur = stack.pop()
+            if cur == destination:
                 return True
-            visited.add(vertix)
             
-            for edge in graph[vertix]:
-                if edge not in visited:
-                    found = dfs(edge , visited)
-                    if found:
-                        return True
-            return False
-        return dfs(source , visited)
+            visited.add(cur)
+            for neighbor in graph[cur]:
+                if neighbor not in visited:
+                    stack.append(neighbor)
+        
+        return False
