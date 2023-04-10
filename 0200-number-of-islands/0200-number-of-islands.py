@@ -7,12 +7,15 @@ class Solution:
             return 0 <= row < len(grid) and 0 <= col < len(grid[0])
         
         def dfs(visited , row ,col):
+            if not inbound(row,col) or grid[row][col]=="0":
+                return
+            
             visited.add((row,col))
             
             for r , c in direction:
                 newRow = row + r
                 newCol = col + c
-                if inbound(newRow,newCol) and grid[row][col]=="1" and (newRow ,newCol) not in visited:
+                if (newRow ,newCol) not in visited:
                     dfs(visited , newRow , newCol)
                     
         
