@@ -16,7 +16,7 @@ class Solution:
                 if inbound(newRow,newCol) and grid2[newRow][newCol] and (newRow , newCol) not in visited:
                     if not grid1[newRow][newCol]:
                         self.valid = False
-                        continue
+                        continue   
                     dfs(newRow , newCol)
                     
         
