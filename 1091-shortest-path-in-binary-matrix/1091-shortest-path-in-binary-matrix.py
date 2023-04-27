@@ -7,7 +7,7 @@ class Solution:
         rowLength = len(grid) - 1
         directions = [ (1,1) , (1,0) , (1,-1) , (0,1) , (0,-1) , (-1,1) , (-1,0) , (-1,-1) ]
         visited = set()
-        
+        visited.add(grid[0][0])
         if grid[0][0] == 1 or grid[-1][-1] == 1:
             return -1
         
@@ -15,7 +15,6 @@ class Solution:
         
         while queue:
             row , col , path = queue.popleft()    
-            visited.add((row , col))
             
             if row == rowLength and col == rowLength:
                 return path
