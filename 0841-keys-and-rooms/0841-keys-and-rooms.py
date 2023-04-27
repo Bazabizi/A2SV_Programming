@@ -6,13 +6,13 @@ class Solution:
         while queue:
             room = queue.popleft()
             visited.add(room)
-            if room in locked:
-                locked.remove(room)
+            # if room in locked:
+            #     locked.remove(room)
             for keys in rooms[room]:
                 if keys not in visited:
                     queue.append(keys)
         
-        if locked:
+        if len(visited) != len(rooms):
             return False
         
         return True
