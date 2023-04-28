@@ -12,14 +12,10 @@ class Solution:
             if (speed*2, position + speed) not in visited:
                 queue.append((speed * 2 ,path + 1 , position + speed))
                 visited.add((speed *2 , position + speed))
-                if position + speed == target:
-                    return path + 1
-            if speed > 0 and (-1 , position) not in visited:
-                queue.append(( -1 , path + 1 , position))
-                visited.add((-1 , position))
-            
-            elif speed < 0 and (1 , position) not in visited:
-                queue.append(( 1 , path + 1 , position))
-                visited.add((1 , position))
+                
+            if (-1 if speed > 0 else 1 , position) not in visited:
+                if position + speed > target and speed > 0 or (position + speed < target and speed < 0):
+                    queue.append(( -1 if speed > 0 else 1 , path + 1 , position))
+                    visited.add((-1 if speed > 0 else 1 , position))
             
         return path
