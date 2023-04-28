@@ -22,8 +22,4 @@ class Solution:
                 queue.append(( 1 , path + 1 , position))
                 visited.add((1 , position))
             
-            
-            if position == target:
-                return path
-            
         return path
