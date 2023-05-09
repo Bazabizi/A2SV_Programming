@@ -12,16 +12,13 @@ class Solution:
         for i in range(numCourses):
             if i not in indegree:
                 queue.append(i)
-                visited.add(i)
-        
         while queue:
             course = queue.popleft()
             ans.append(course)
             for val in outdegree[course]:
                 indegree[val].remove(course)
-                if val not in visited and len(indegree[val]) == 0:
+                if len(indegree[val]) == 0:
                     queue.append(val)
-                    visited.add(val)
         if len(ans) != numCourses:
             return []
         
