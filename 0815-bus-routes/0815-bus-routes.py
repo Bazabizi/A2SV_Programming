@@ -12,9 +12,10 @@ class Solution:
                 queue.append((graph[val] , 1))
                 break
         index = set()
+        
+        if target == source:
+            return 0
         while queue:
-            if target == source:
-                return 0
             idx , path = queue.popleft()
             
             for val in idx:
