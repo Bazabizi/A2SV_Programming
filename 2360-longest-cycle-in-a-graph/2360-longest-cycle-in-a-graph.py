@@ -22,6 +22,8 @@ class Solution:
                         continue
                     if color[val] == 1:
                         self.cycle  = max(path - time[val] + 1, self.cycle)
+                        color[vertix] = 2
+                        return
                     else:
                         dfs(val , path + 1)
 
