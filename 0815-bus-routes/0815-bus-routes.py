@@ -13,9 +13,10 @@ class Solution:
                 break
         index = set()
         
-        if target == source:
-            return 0
         while queue:
+            
+            if target == source:
+                return 0
             idx , path = queue.popleft()
             
             for val in idx:
