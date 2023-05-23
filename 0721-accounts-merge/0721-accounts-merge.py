@@ -16,11 +16,11 @@ class Solution:
             rep_y = find(y)
             if rep_x != rep_y:
                 if count[rep_x] > count[rep_y]:
-                    parent[rep_x] = rep_y
-                    count[rep_y] += count[rep_x]
-                else:
                     parent[rep_y] = rep_x
                     count[rep_x] += count[rep_y]
+                else:
+                    parent[rep_x] = rep_y
+                    count[rep_y] += count[rep_x]
         
         for idx , account in enumerate(accounts):
             for email in account[1:]:
