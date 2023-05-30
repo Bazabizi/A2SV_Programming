@@ -17,10 +17,10 @@ class Solution:
             memo[total] = val
             return memo[total] + 1
         
-        dp(amount)
-        if memo[amount] == float('inf'):
+        ans = dp(amount)
+        if ans == float('inf'):
             return -1
-        return memo[amount] + 1
+        return ans
             
         
      
