@@ -1,26 +1,17 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        memo = defaultdict(int)
-        coins.sort()
-        def dp(total):
-            if total == 0:
-                memo[total] = -1
-                return 0
-            if total < 0:
-                return float('inf')
-            if total in memo:
-                return memo[total] + 1
-            val =  float('inf')
-            for num in coins:
-                path = dp(total - num)
-                val = min(val , path)
-            memo[total] = val
-            return memo[total] + 1
-        
-        ans = dp(amount)
-        if ans == float('inf'):
-            return -1
-        return ans
+        dp = [float('inf')] *( amount + 1)
+        if amount == 0:
+            return 0
+        for num in coins:
+            if num <= amount:
+                dp[num] = 1
             
+        for num in range(1 , amount + 1):
+            for coin in coins:
+                if num - coin >= 0:
+                    dp[num] = min (dp[num] , dp[num - coin] + 1)
         
-     
+        if dp[amount] == float('inf'):
+            return -1
+        return dp[amount]
