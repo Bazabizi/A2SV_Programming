@@ -3,7 +3,7 @@ class Solution:
         self.memo = defaultdict(int)
         
     def fib(self, n: int) -> int:
-        if n == 1 or n == 0:
+        if n == 1 :
             return n
         fib1 = 0
         fib2 = 1
