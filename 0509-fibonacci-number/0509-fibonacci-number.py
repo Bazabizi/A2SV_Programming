@@ -3,8 +3,17 @@ class Solution:
         self.memo = defaultdict(int)
         
     def fib(self, n: int) -> int:
-        if n < 2 :
+        if n == 1 or n == 0:
             return n
-        if n not in self.memo:
-            self.memo[n] = self.fib(n - 1) + self.fib(n- 2)
-        return self.memo[n]
+        fib1 = 0
+        fib2 = 1
+        fib3 = 0
+        state = 2
+        
+        while state <= n:
+            fib3 = fib1 + fib2
+            fib1 = fib2
+            fib2 = fib3
+            state += 1
+        
+        return fib3
