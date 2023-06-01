@@ -13,9 +13,8 @@ class Solution:
             dp[idx] += nums[idx]
         
         maxval = max(dp)
-        size -= 1
         dp = [0] *(size)
-        for idx in range(size - 1, -1, -1):
+        for idx in range(size - 2, -1, -1):
             
             if idx + 2 < size:
                 
