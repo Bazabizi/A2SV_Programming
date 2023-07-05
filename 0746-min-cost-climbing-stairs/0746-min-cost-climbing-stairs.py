@@ -1,12 +1,10 @@
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         size = len(cost)
-        first = cost[0]
-        second = cost[1]
-        
+        dp = [0]*size
+        dp[0] = cost[0]
+        dp[1] = cost[1]
         for idx in range(2 , size):
-            val = min(first , second) + cost[idx]
-            first = second
-            second = val
-            
-        return min(second , first)
+            dp[idx] += min(dp[idx- 1] , dp[idx - 2]) + cost[idx]
+        
+        return min(dp[-1] , dp[-2])
