@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class LockingTree:
 
     def __init__(self, parent: List[int]):
@@ -56,3 +54,9 @@ class LockingTree:
             self.locked.pop(node)
         for child in self.graph[node]:
             self.unlock_descendants(child)
+
+# Your LockingTree object will be instantiated and called as such:
+# obj = LockingTree(parent)
+# param_1 = obj.lock(num,user)
+# param_2 = obj.unlock(num,user)
+# param_3 = obj.upgrade(num,user)
