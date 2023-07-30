@@ -7,7 +7,7 @@ class Solution:
         def inbound(row , col):
             return 0 <= row < len(grid) and 0 <= col < len(grid[0])
         
-        ans = []
+        ans = float('inf')
         
         queue.append([0 , 0 , grid[0][0]])
         n = len(grid) - 1
@@ -17,7 +17,7 @@ class Solution:
         while queue:
             row , col , time = queue.popleft()
             if row == n and col == m:
-                heappush(ans , time)
+                ans = min(time , ans)
                 continue
                 # break
             for r , c in direction:
@@ -29,4 +29,4 @@ class Solution:
                         queue.append((r , c , max(grid[r][c] , newTime)))
                         visited[(r , c)] = newTime
 
-        return ans[0]
+        return ans
