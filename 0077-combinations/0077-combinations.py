@@ -9,6 +9,7 @@ class Solution:
             if idx > n:
                 return 
             combination.append(idx)
+            
             backtrack(idx + 1 ,combination)
             combination.pop()
             backtrack(idx+ 1 , combination)
