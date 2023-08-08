@@ -10,7 +10,7 @@ class Solution:
                 return mid
             
             if nums[mid] >= nums[left + 1]:
-                if target < nums[mid] and target >= nums[left + 1]:
+                if nums[left + 1] <= target < nums[mid]:
                     right = mid
                 else:
                     left = mid
