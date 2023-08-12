@@ -17,22 +17,19 @@ class Solution:
             
             return True
             
-            
+
         houses.sort()
         heaters.sort()
-        
-        left = -1
-        right = max(abs(heaters[0] - houses[-1]) , abs(heaters[-1] - houses[0])) + 1
-        
-        while left + 1 < right:
-            mid = left + (right - left)//2
-            
-            if canWarmAllHouses( mid ):
+        max_ = max(houses[-1] - heaters[0] , heaters[-1] - houses[0])
+        left, right = 0, max_
+        while left < right:
+            mid = left + (right-left)//2
+            if canWarmAllHouses(mid):
                 right = mid
             else:
-                left = mid
-        
-        return right
+                left = mid+1
+        return left
+
     
                 
         
