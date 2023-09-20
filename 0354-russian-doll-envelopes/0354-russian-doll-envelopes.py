@@ -3,7 +3,6 @@ class Solution:
         envelopes.sort(key = lambda x: (x[0] , -x[1]))
         ans = 0
         arr = []
-        #[[1,7],[2,4],[4,5],[6,8]]
         for w , h in envelopes:
             if not arr or arr[-1] < h:
                 ans += 1
