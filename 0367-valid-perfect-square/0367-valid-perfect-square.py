@@ -1,6 +1,16 @@
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
-        n = math.sqrt(num)
-        if n != math.ceil(n) or n != math.floor(n):
-            return False
-        return True
+        left = 0
+        right = num + 1
+        
+        while left + 1 < right:
+            mid = left + (right - left)//2
+            val = mid*mid
+            if val < num:
+                left = mid
+            elif val > num:
+                right= mid
+            else:
+                return True
+        
+        return False
