@@ -14,9 +14,8 @@ class Solution:
             ageScore.append([age,score])
         
         ageScore.sort()
-        dp[-1] = ageScore[-1][-1]
         
-        for idx in range(length-2 , -1 , -1):
+        for idx in range(length-1 , -1 , -1):
             count = 0
             for idx2 in range(idx , length):
                 if checker(ageScore[idx] , ageScore[idx2]):
