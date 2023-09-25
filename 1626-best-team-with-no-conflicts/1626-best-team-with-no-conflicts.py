@@ -1,6 +1,6 @@
 class Solution:
     def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
-        def checker(score1  , score2):
+        def valid(score1  , score2):
             if score1[0] == score2[0]:
                 return True
             if score1[1] > score2[1]:
@@ -18,7 +18,7 @@ class Solution:
         for idx in range(length-1 , -1 , -1):
             count = 0
             for idx2 in range(idx , length):
-                if checker(ageScore[idx] , ageScore[idx2]):
+                if valid(ageScore[idx] , ageScore[idx2]):
                     count = max(count , dp[idx2])
             
             dp[idx] = count + ageScore[idx][1]
