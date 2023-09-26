@@ -1,61 +1,40 @@
-class TreeNode:
-    def __init__(self , val=""):
-        self.right = None
-        self.left = None
-        self.val = val
-
+class TrieNode:
+    def __init__(self):
+        self.children = [None for _ in range(26)]
+        self.EOW = False
 
 class Trie:
 
     def __init__(self):
-        self.tree = None
+        self.root = TrieNode()
 
     def insert(self, word: str) -> None:
-        root = self.tree
-        if not root:
-            self.tree = TreeNode(word)
-            return
+        node = self.root
+        for l in word:
+            index = ord(l) - ord('a')
+            if not node.children[index]:
+                node.children[index] = TrieNode()
+            node = node.children[index]
+        node.EOW = True
 
-        parent = None
-        while root:
-            parent = root
-            if root.val < word:
-                root = root.right
-            else:
-                root = root.left
-        
-        if parent.val < word:
-            parent.right = TreeNode(word)
-        else:
-            parent.left = TreeNode(word)
-        
-            
     def search(self, word: str) -> bool:
-        
-        root = self.tree
-        while root:
-            if root.val < word:
-                root = root.right
-            elif root.val > word:
-                root = root.left
-            else:
-                return True
-        
-        return False
+        node = self.root
+        for l in word:
+            index = ord(l) - ord('a')
+            if not node.children[index]:
+                return False
+            node = node.children[index]
+        return node.EOW
+           
 
     def startsWith(self, prefix: str) -> bool:
-        
-        length = len(prefix)
-        root = self.tree
-        while root:
-            if root.val[:length]> prefix:
-                root = root.left
-            elif root.val[:length ] < prefix:
-                root = root.right
-            else:
-                return True
-        return False
-    
+        node = self.root
+        for l in prefix:
+            index = ord(l) - ord('a')
+            if not node.children[index]:
+                return False
+            node = node.children[index]
+        return True
 
 
 # Your Trie object will be instantiated and called as such:
