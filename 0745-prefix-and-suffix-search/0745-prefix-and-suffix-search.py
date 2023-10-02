@@ -10,7 +10,6 @@ class Trie:
     def insert(self, word , idx):
         node = self.root
         for l in word:
-            # index = ord(l) - ord('a')
             if l not in node.children:
                 node.children[l] = TrieNode()
             
@@ -21,13 +20,12 @@ class Trie:
     def search(self , word):
         node = self.root
         for l in word:
-            # index = ord(l) - ord('a')
             if l not in node.children:
                 return -1
             node = node.children[l]
         
         return node.index
-        # return self.traverse(node)
+        
     def traverse(self, node):
         ans = -1
 
