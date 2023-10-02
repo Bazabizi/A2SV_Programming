@@ -13,8 +13,9 @@ class Trie:
             # index = ord(l) - ord('a')
             if l not in node.children:
                 node.children[l] = TrieNode()
+            
             node = node.children[l]
-        node.index = idx
+            node.index = idx
         node.EOW = True
     
     def search(self , word):
@@ -25,9 +26,8 @@ class Trie:
                 return -1
             node = node.children[l]
         
-        # if node.EOW:
-        #     return node.index
-        return self.traverse(node)
+        return node.index
+        # return self.traverse(node)
     def traverse(self, node):
         ans = -1
 
