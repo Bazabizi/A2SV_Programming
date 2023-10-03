@@ -1,8 +1,5 @@
 class Solution:
     def splitArray(self, nums: List[int], k: int) -> int:
-        right = sum(nums) + 1
-        left = max(nums) - 1
-        
         
         def isValid(val):
             count = 0
@@ -18,7 +15,10 @@ class Solution:
                     total = num
             if total == 0:
                 return count
+            
             return count + 1
+        right = sum(nums) + 1
+        left = max(nums) - 1
         
         while left + 1 < right:
             mid = left + (right - left)//2
