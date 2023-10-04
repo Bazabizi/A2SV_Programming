@@ -1,27 +1,32 @@
 class Solution:
     def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
-        graph = defaultdict(list)
-        indegree = defaultdict(int)
-        for start , end in prerequisites:
-            graph[start].append(end)
-            indegree[end] += 1
-        final = defaultdict(set)    
-        queue = deque()
-        for i in range(numCourses):
-            if i not in indegree:
-                queue.append(i)
-        ans = [False]*len(queries)
-        while queue:
-            vertix = queue.popleft()
-            for val in graph[vertix]:
-                indegree[val] -= 1
-                final[val] = final[val].union(final[vertix])
-                final[val].add(vertix)
-                if indegree[val] == 0:
-                    queue.append(val)
+        ans = []
         
-        for idx , (start , end) in enumerate(queries):
-            if start in final[end]:
-                ans[idx] = True
+        graph = defaultdict(list)
+        for start , end in prerequisites:
+            graph[start].append([end , 1])
+        
+        
+        def shortestPath(start , destination):
+            distances = {node : float('inf')  for node in range( numCourses)}
+            distances[start] = 0
+            
+            heap = [(0 , start)]
+            while heap:
+                distance , node = heap.pop()
+                for end , width in graph[node]:
+                    newDistance = distance + width
+
+                    if distances[end] > newDistance:
+                        heappush(heap , [newDistance , end])
+                        distances[end] = newDistance
+            
+            ans = False
+            if distances[destination] != float('inf'):
+                ans = True
+            return ans
+            
+        for start , end in queries:
+            ans.append(shortestPath(start  , end))
         
         return ans
