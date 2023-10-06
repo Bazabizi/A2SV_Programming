@@ -15,7 +15,6 @@ class Solution:
         
         while heap:
             time , node = heappop(heap)
-            # print(heap)
             row , col = node
             if row == rowLength - 1 and col == colLength - 1:
                 return time
@@ -32,6 +31,5 @@ class Solution:
                     heappush(heap , (max(time + 1 , grid[r][c] + wait) , (r , c)))
                     
 
-        return -1
             
             
