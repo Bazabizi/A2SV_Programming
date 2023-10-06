@@ -1,10 +1,9 @@
 class Solution:
     def minimumTime(self, grid: List[List[int]]) -> int:
         if grid[0][1] > 1 and grid[1][0] > 1: return -1
+        
         directions = [(0 ,1),(0 , -1),(1,0),(-1,0)]
         heap = [(0,(0 , 0))]
-        distances = defaultdict(lambda:float('inf'))
-        distances[(0 , 0)] = 0
         rowLength , colLength = len(grid) , len(grid[0])
         
         def inbound(row , col):
