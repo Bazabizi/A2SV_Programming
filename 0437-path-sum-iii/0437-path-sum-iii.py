@@ -5,20 +5,27 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def traverse(self,root,prefix , count , target):
-        if not root:
-            return
-        prefix += root.val
-        if prefix - target in count:
-            self.ans += count[prefix - target]
-        count[prefix] += 1
-        self.traverse(root.left,prefix ,count.copy(), target)
-        self.traverse(root.right,prefix ,count.copy(), target)
-        
-    
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        count = defaultdict(int)
-        count[0] = 1
+    def __init__(self):
         self.ans = 0
-        self.traverse(root,0 , count , targetSum)
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        def dfs(root , total , targetSum):
+           
+            if not root:
+                return
+            
+            total = total + root.val
+            if total == targetSum:
+                self.ans += 1
+            
+            dfs(root.left , total  , targetSum)
+            dfs(root.right , total  , targetSum)
+        
+        if not root:
+            return 0
+        dfs(root , 0 , targetSum)
+        self.pathSum(root.left , targetSum)
+        self.pathSum(root.right , targetSum)
+        
+        
         return self.ans
+            
