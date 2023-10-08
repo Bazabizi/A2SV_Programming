@@ -7,13 +7,14 @@ class Solution:
             if len(path) == len(nums):
                 ans.append(path[:])
                 return
+            
             for idx in range(len(nums)):
-                if (used & ( 1 << idx))== 0:
-                    used |= 1 << idx
+                if used & (1<<idx) == 0:
                     path.append(nums[idx])
-                    backtrack(path )
+                    used |= 1<< idx
+                    backtrack(path)
                     path.pop()
                     used ^= 1 << idx
-            
         backtrack([])
+    
         return ans
