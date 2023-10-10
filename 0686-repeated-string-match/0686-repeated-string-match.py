@@ -20,7 +20,7 @@ class Solution:
         i = 0
         x = max(len(a) , len(b))
         y = min(len(a), len(b))
-        for k in range(1,2*x//y + 50):
+        for k in range(1,3*x//y):
             j = 0
             while j < len(a):
                 
