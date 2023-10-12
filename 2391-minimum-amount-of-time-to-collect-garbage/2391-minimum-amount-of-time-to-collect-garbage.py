@@ -5,13 +5,9 @@ class Solution:
         for num in travel[1:]:
             val = prefix[-1]
             prefix.append(val+num)
-        # print(prefix)
-        m = 0
-        g = 0
-        p = 0
-        idxm = -1
-        idxg = -1
-        idxp = -1
+        
+        m,g,p = 0 , 0 , 0
+        idxm , idxg , idxp= -1 , -1 , -1
         
         for idx , trash in enumerate(garbage):
             for l in trash:
@@ -24,8 +20,7 @@ class Solution:
                 if l == "P":
                     p += 1
                     idxp = idx
-        # print(idxg , idxp , idxm)
-        # print(g , p , m)
+        
         ans = 0
         if idxg != -1:
             ans += g + prefix[idxg]
