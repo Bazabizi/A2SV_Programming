@@ -14,18 +14,10 @@ class Solution:
             left = traverse(root.left , parent)
             right = traverse(root.right , parent)
             have = left + right
-            if root.val == 0:
-                have -= 1
+            have  += root.val - 1
             
-            elif root.val > 1:
-                have += root.val -1
-            # print(have , root.val)
-            if root != parent:
-                if have >= 1:
-                    ans += have 
-                else:
-                    ans += (-have)
-            # print(root.val , have , ans)
+            ans += abs(have) 
+            
             return have
         
         traverse(root , root)
