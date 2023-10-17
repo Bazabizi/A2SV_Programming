@@ -8,7 +8,9 @@ class Solution:
             
             
 #         return max(dp)
-        dp = [0] * 123 # since ord('a') = 96
+        dp = [0] * (27 + 2*k) # since ord('a') = 96
         for c in s:
-            dp[ord(c)] = max(dp[ord(c) - k : ord(c) + k + 1]) + 1
+            index = ord(c) - 96 + k
+            # print(index)
+            dp[index] = max(dp[index - k : index + k + 1]) + 1
         return max(dp)
