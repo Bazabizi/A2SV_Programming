@@ -1,48 +1,31 @@
+import math
+from collections import deque
+
 class Solution:
     def calculate(self, s: str) -> int:
-        stack = []
+        stack = deque()
+        num = 0
+        operator = "+"
         
-        
-        for num in s:
-            if num == " ":
-                continue
-            if not stack:
-                stack.append(int(num))
-                continue
-            val = num    
-            if '0' <= num <= '9':
-                val = int(num)
-                if str(stack[-1]).isdigit():
-                    val = stack.pop() *10 + int(num)
-            stack.append(val)
-        stack2 = stack.copy()
-        stack = []
-        idx = 0
-        while idx  < len(stack2):
-            val = stack2[idx]
-            if val != "+" and val != "*" and val != "/" and val != "-":
-                stack.append(val)
-                idx += 1
-                continue
-            if val == "+":
+        for i in range(len(s)):
+            if s[i].isdigit():
+                num = num * 10 + int(s[i])
+            
+            if (not s[i].isdigit() and s[i] != " ") or i == len(s) - 1:
+                if operator == "+":
+                    stack.append(num)
+                elif operator == "-":
+                    stack.append(-num)
+                elif operator == "*":
+                    stack.append(stack.pop() * num)
+                elif operator == "/":
+                    prev = stack.pop()
+                    if prev < 0:
+                        stack.append(math.ceil(prev / num))
+                    else:
+                        stack.append(prev // num)
                 
-                idx += 1
-                continue
-            if val == "-":
-                stack.append(-stack2[idx + 1])
-                idx += 2
-                continue
-            if val == "/" or val == "*":
-                num = stack.pop()
-                if val == "/":
-                    num /= stack2[idx + 1]
-                    if num < 0:
-                        num = math.ceil(num)
-                    num = math.floor(num)
-                else:
-                    num *= stack2[idx + 1]
-                idx += 2
-                stack.append(num)
-                continue
+                num = 0
+                operator = s[i]
         
         return sum(stack)
