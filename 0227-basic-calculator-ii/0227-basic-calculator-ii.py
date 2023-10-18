@@ -1,9 +1,6 @@
-import math
-from collections import deque
-
 class Solution:
     def calculate(self, s: str) -> int:
-        stack = deque()
+        stack = []
         num = 0
         operator = "+"
         
