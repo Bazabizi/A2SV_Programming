@@ -23,6 +23,7 @@ class Solution:
         graph = defaultdict(list)
         for start , end  ,t in meetings:
             graph[t].append((start, end))
+        
         ans = set([0 , firstPerson])
         length = len(meetings)
         
