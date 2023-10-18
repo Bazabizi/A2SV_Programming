@@ -3,7 +3,7 @@ class Solution:
         ans = 0
         graph = defaultdict(list)
         indegree = defaultdict(int)
-        times = defaultdict(int)
+        times = [0]*(n + 1)
         for start , end in relations:
             graph[start].append(end)
             indegree[end] += 1
