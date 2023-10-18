@@ -1,6 +1,7 @@
 class Solution:
     def calculate(self, s: str) -> int:
         stack = []
+        arr = [0]*(10**4)
         for num in s:
             if num == " ":
                 continue
