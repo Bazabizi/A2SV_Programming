@@ -20,7 +20,7 @@ class Solution:
         
         meetings.sort(key = lambda x:x[-1])
         idx = 0
-        ans = []
+        ans = set([0 , firstPerson])
         length = len(meetings)
         while idx < length:
             sameMeeting = [meetings[idx]]
@@ -35,10 +35,9 @@ class Solution:
                 if rep != 0:
                     parent[x] = x
                     parent[y] = y
+                else:
+                    ans.add(x)
+                    ans.add(y)
             idx += 1
-        
-        for i in range(n):
-            if find(i) == 0:
-                ans.append(i)
-        
+        ans = list(ans)
         return ans
