@@ -8,17 +8,15 @@ class Solution:
     def traversal(self,root):
         if not root:
             return [0 , 0]
-        left = self.traversal(root.left)
-        left[0] += 1
-        left[1] += root.val
+        left = self.traversal(root.left)      
         right = self.traversal(root.right)
-        right[0] += 1
-        right[1] += root.val
+
         sumup = right[1] + left[1] + root.val
-        average = sumup // (left[0] + right[0] + 1)
+        size = left[0] + right[0] + 1
+        average = sumup // size
         if average == root.val:
             self.count += 1
-        return [ left[0] + right[0] + 1, sumup]
+        return [ size, sumup]
     def averageOfSubtree(self, root: Optional[TreeNode]) -> int:
         self.count = 0
         ans = self.traversal(root)
